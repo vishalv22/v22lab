@@ -9,8 +9,8 @@ body {
 header {
     background: #051620;
     color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1rem;
+    text-align: left;
 }
 
 main {
