@@ -10,7 +10,28 @@ header {
     background: #051620;
     color: #fff;
     padding: 1rem;
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    color: white;
+    background-color: #1f4b5e;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #2a6580;
 }
 
 main {
@@ -48,4 +69,6 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
 }
