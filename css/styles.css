@@ -15,7 +15,29 @@ header {
 
 main {
     color: #fff;
-    padding: 1rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4a9eff;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 footer {
