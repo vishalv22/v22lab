@@ -124,13 +124,34 @@ main {
 
 /* Highlights Section */
 .highlights {
-    margin-top: 4rem;
+    margin-top: 25.6rem;
+    position: relative;
 }
 
-.highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.scroll-hint {
+    text-align: center;
+    color: #8da891;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.highlight-scroll-container {
+    display: flex;
     gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2rem calc(50% - 160px);
+    perspective: 1000px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.highlight-scroll-container::-webkit-scrollbar {
+    display: none;
 }
 
 .highlight-card {
@@ -138,11 +159,18 @@ main {
     border: 1px solid #435E52;
     border-radius: 12px;
     padding: 2rem;
-    transition: all 0.3s ease;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 380px;
+    min-width: 320px;
+    max-width: 320px;
+    flex-shrink: 0;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 .highlight-card::before {
@@ -154,15 +182,17 @@ main {
     bottom: 0;
     border-radius: 12px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.1s ease-out;
     pointer-events: none;
-    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(115, 175, 111, 0.15), transparent 40%);
+    background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(115, 175, 111, 0.15), transparent 40%);
+    transform: translateZ(0);
 }
 
 .highlight-card:hover {
     border-color: #73AF6F;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(115, 175, 111, 0.1);
+    transform: translateY(-10px) rotateY(5deg) scale(1.05) translateZ(0);
+    box-shadow: 0 20px 60px rgba(115, 175, 111, 0.2);
+    z-index: 10;
 }
 
 .highlight-card:hover::before {
@@ -209,10 +239,9 @@ main {
         font-size: 2rem;
     }
     
-    
-    .highlight-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .highlight-card {
+        min-width: 280px;
+        max-width: 280px;
     }
     
     .console-body {
@@ -225,19 +254,12 @@ main {
     main {
         padding: 2rem 5rem;
     }
-    
-    
-    .highlight-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (min-width: 1025px) and (max-width: 1400px) {
     main {
         padding: 2rem 8rem;
     }
-    
-
 }
 
 /* Social Rail */
@@ -311,7 +333,48 @@ main {
     color: #73AF6F;
 }
 
-@media (max-width: 768px) {
+.social-logo {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) saturate(100%) invert(69%) sepia(12%) saturate(15%) hue-rotate(92deg) brightness(95%) contrast(89%);
+    transition: filter 0.3s ease;
+}
+
+.social-icon:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(64%) sepia(25%) saturate(1458%) hue-rotate(92deg) brightness(91%) contrast(85%);
+}
+
+.social-icon.instagram:hover {
+    border-color: #E4405F;
+    background: rgba(228, 64, 95, 0.15);
+    box-shadow: 0 0 15px rgba(228, 64, 95, 0.4);
+}
+
+.social-icon.facebook:hover {
+    border-color: #1877F2;
+    background: rgba(24, 119, 242, 0.15);
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.4);
+}
+
+.social-icon.youtube:hover {
+    border-color: #FF0000;
+    background: rgba(255, 0, 0, 0.15);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.social-icon.instagram:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(89%) saturate(1583%) hue-rotate(329deg) brightness(94%) contrast(93%);
+}
+
+.social-icon.facebook:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(94%) saturate(7490%) hue-rotate(214deg) brightness(97%) contrast(96%);
+}
+
+.social-icon.youtube:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(7426%) hue-rotate(0deg) brightness(108%) contrast(119%);
+}
+
+@media (max-width: 1024px) {
     .social-rail {
         display: none;
     }

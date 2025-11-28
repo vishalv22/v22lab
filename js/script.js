@@ -33,17 +33,33 @@ if (typingText) {
     setTimeout(type, 500);
 }
 
-// Cursor light effect
+// Cursor light effect with throttling
 const cards = document.querySelectorAll('.hero-console, .highlight-card');
+let ticking = false;
 
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
 });
+
+// Horizontal scroll with wheel
+const scrollContainer = document.querySelector('.highlight-scroll-container');
+if (scrollContainer) {
+    scrollContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        scrollContainer.scrollLeft += e.deltaY * 3;
+    }, { passive: false });
+}
 
