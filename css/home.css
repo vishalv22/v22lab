@@ -173,30 +173,11 @@ main {
     -webkit-font-smoothing: antialiased;
 }
 
-.highlight-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    opacity: 0;
-    transition: opacity 0.1s ease-out;
-    pointer-events: none;
-    background: radial-gradient(300px circle at var(--mouse-x) var(--mouse-y), rgba(115, 175, 111, 0.15), transparent 40%);
-    transform: translateZ(0);
-}
-
-.highlight-card:hover {
+.highlight-card.center-active {
     border-color: #73AF6F;
     transform: translateY(-10px) rotateY(5deg) scale(1.05) translateZ(0);
     box-shadow: 0 20px 60px rgba(115, 175, 111, 0.2);
     z-index: 10;
-}
-
-.highlight-card:hover::before {
-    opacity: 1;
 }
 
 .highlight-card h3 {

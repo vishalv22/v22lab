@@ -54,12 +54,62 @@ cards.forEach(card => {
     });
 });
 
-// Horizontal scroll with wheel
+// Horizontal scroll with wheel - buttery smooth scrolling
 const scrollContainer = document.querySelector('.highlight-scroll-container');
 if (scrollContainer) {
+    let targetScrollLeft = scrollContainer.scrollLeft;
+    let currentScrollLeft = scrollContainer.scrollLeft;
+    let rafId = null;
+    const cards = scrollContainer.querySelectorAll('.highlight-card');
+
+    function updateCenterCard() {
+        const viewportCenter = window.innerWidth / 2;
+        
+        cards.forEach(card => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distance = Math.abs(viewportCenter - cardCenter);
+            
+            if (distance < cardRect.width / 2) {
+                card.classList.add('center-active');
+            } else {
+                card.classList.remove('center-active');
+            }
+        });
+    }
+
+    function smoothScroll() {
+        const diff = targetScrollLeft - currentScrollLeft;
+        const delta = diff * 0.08;
+        
+        if (Math.abs(diff) > 0.1) {
+            currentScrollLeft += delta;
+            scrollContainer.scrollLeft = currentScrollLeft;
+            updateCenterCard();
+            rafId = requestAnimationFrame(smoothScroll);
+        } else {
+            currentScrollLeft = targetScrollLeft;
+            scrollContainer.scrollLeft = targetScrollLeft;
+            updateCenterCard();
+            rafId = null;
+        }
+    }
+
     scrollContainer.addEventListener('wheel', (e) => {
         e.preventDefault();
-        scrollContainer.scrollLeft += e.deltaY * 3;
+        
+        targetScrollLeft += e.deltaY * 2;
+        targetScrollLeft = Math.max(0, Math.min(
+            targetScrollLeft,
+            scrollContainer.scrollWidth - scrollContainer.clientWidth
+        ));
+        
+        if (!rafId) {
+            currentScrollLeft = scrollContainer.scrollLeft;
+            rafId = requestAnimationFrame(smoothScroll);
+        }
     }, { passive: false });
+
+    updateCenterCard();
 }
 
