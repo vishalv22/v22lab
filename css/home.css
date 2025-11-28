@@ -355,8 +355,42 @@ main {
     filter: brightness(0) saturate(100%) invert(11%) sepia(100%) saturate(7426%) hue-rotate(0deg) brightness(108%) contrast(119%);
 }
 
-@media (max-width: 1024px) {
+.social-icon.github:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.social-icon.github:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.social-icon.discord:hover {
+    border-color: #5865F2;
+    background: rgba(88, 101, 242, 0.15);
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+}
+
+.social-icon.discord:hover .social-logo {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(2270%) hue-rotate(227deg) brightness(96%) contrast(92%);
+}
+
+@media (max-width: 768px) {
     .social-rail {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+    
+    .social-label,
+    .social-arrow {
         display: none;
+    }
+    
+    .social-icons {
+        flex-direction: row;
     }
 }

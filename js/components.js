@@ -14,7 +14,13 @@ function createHeader(activePage) {
 
 // Reusable footer component
 function createFooter() {
-    return `<p>Made by <span class="highlight">Vishal</span></p>`;
+    const year = new Date().getFullYear();
+    return `
+        <div class="footer-content">
+            <p>© ${year} v22lab. All rights reserved.</p>
+            <p>Designed & Developed by <span class="highlight">Vishal</span></p>
+        </div>
+    `;
 }
 
 // Initialize components
