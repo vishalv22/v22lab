@@ -110,6 +110,10 @@ if (scrollContainer) {
         }
     }, { passive: false });
 
+    scrollContainer.addEventListener('scroll', () => {
+        updateCenterCard();
+    });
+
     updateCenterCard();
 }
 
