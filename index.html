@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body data-page="home">
+    <div class="bg-grid"></div>
     <header></header>
     
     <aside class="social-rail">
@@ -24,26 +25,36 @@
             <a href="https://www.instagram.com/vishalv22_22" target="_blank" rel="noopener noreferrer" class="social-icon instagram" aria-label="Instagram">
                 <img src="assets/icons/instagram.png" alt="Instagram" class="social-logo">
             </a>
-            <a href="#" class="social-icon facebook" aria-label="Facebook">
+            <a href="https://www.facebook.com/0xvee" target="_blank" rel="noopener noreferrer" class="social-icon facebook" aria-label="Facebook">
                 <img src="assets/icons/facebook.png" alt="Facebook" class="social-logo">
             </a>
             <a href="https://www.youtube.com/@vishalv22_22" target="_blank" rel="noopener noreferrer" class="social-icon youtube" aria-label="YouTube">
                 <img src="assets/icons/youtube.png" alt="YouTube" class="social-logo">
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon github" aria-label="GitHub">
+            <a href="https://github.com/vishalv22" target="_blank" rel="noopener noreferrer" class="social-icon github" aria-label="GitHub">
                 <img src="assets/icons/github.png" alt="GitHub" class="social-logo">
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="social-icon discord" aria-label="Discord">
+            <a href="https://discord.gg/uJJyC4fS" target="_blank" rel="noopener noreferrer" class="social-icon discord" aria-label="Discord">
                 <img src="assets/icons/discord.png" alt="Discord" class="social-logo">
             </a>
         </div>
     </aside>
     
     <main>
-        <section id="intro">
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Open to collaborations</span>
+        </div>
+        
+        <section id="intro" class="scroll-reveal">
             <p class="hero-tag">/ welcome to the v22lab</p>
             <h1>Hi, I'm <span class="highlight" id="typing-text"></span><span class="cursor">|</span></h1>
-            <p class="hero-subtitle">Developer, tinkerer, and creator of minimal web experiences.</p>
+            <p class="hero-subtitle">Student · Tech Enthusiast · Problem Solver</p>
+            
+            <div class="hero-actions">
+                <a href="projects.html" class="btn-primary">View Projects</a>
+                <a href="about.html" class="btn-secondary">About Me</a>
+            </div>
             
             <div class="hero-console">
                 <div class="console-header">
@@ -54,15 +65,65 @@
                 </div>
                 <div class="console-body">
                     <p><span class="prompt">$</span> whoami</p>
-                    <p class="console-output">developer · tinkerer · visual experiments</p>
+                    <p class="console-output">learner · creator · innovator</p>
                     
-                    <p><span class="prompt">$</span> now</p>
-                    <p class="console-output">building minimal web tools and visual edits.</p>
+                    <p><span class="prompt">$</span> interests</p>
+                    <p class="console-output">coding · gaming · nature · machines · art</p>
+                    
+                    <p><span class="prompt">$</span> currently</p>
+                    <p class="console-output">building projects · exploring AI · learning</p>
                 </div>
             </div>
         </section>
         
-        <section class="highlights">
+        <section class="stats-section scroll-reveal">
+            <div class="stat-card">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Youtube Subs 🥹</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Coding</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Learning</div>
+            </div>
+        </section>
+        
+        <section class="featured-work scroll-reveal">
+            <h2 class="section-title">/ Featured Project</h2>
+            <div class="featured-card">
+                <div class="featured-content">
+                    <span class="featured-tag">FEATURED</span>
+                    <h3>Offline Music Player</h3>
+                    <p>A custom-built offline music player with a clean interface and smooth playback. Designed for simplicity and performance, allowing seamless music management without internet dependency.</p>
+                    <div class="featured-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5 Audio</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Local Storage</span>
+                    </div>
+                    <a href="projects.html" class="featured-link">View all projects →</a>
+                </div>
+                <div class="featured-visual">
+                    <div class="code-preview">
+                        <div class="code-line"><span class="code-keyword">const</span> <span class="code-var">portfolio</span> = {</div>
+                        <div class="code-line">  design: <span class="code-string">'minimal'</span>,</div>
+                        <div class="code-line">  theme: <span class="code-string">'dark'</span>,</div>
+                        <div class="code-line">  animations: <span class="code-string">'smooth'</span>,</div>
+                        <div class="code-line">  responsive: <span class="code-keyword">true</span></div>
+                        <div class="code-line">};</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="highlights scroll-reveal">
             <div class="scroll-hint">Scroll to explore →</div>
             <div class="highlight-scroll-container">
                 <div class="highlight-card">
@@ -73,13 +134,13 @@
                 
                 <div class="highlight-card">
                     <h3>/ Gallery</h3>
-                    <p>Visual edits, mythological art, and creative explorations.</p>
+                    <p>Nature photography, AI art, and wallpapers with interactive viewer.</p>
                     <a href="gallery.html" class="card-link">View gallery →</a>
                 </div>
                 
                 <div class="highlight-card">
                     <h3>/ Notes</h3>
-                    <p>Technical writings, thoughts, and learnings from my journey.</p>
+                    <p>Programming guides and study materials for learning.</p>
                     <a href="notes.html" class="card-link">Read notes →</a>
                 </div>
 

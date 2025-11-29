@@ -1,3 +1,20 @@
+/* About Page Background - Scattered Dots */
+[data-page="about"] .bg-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 15% 20%, rgba(115, 175, 111, 0.06) 0%, transparent 25%),
+        radial-gradient(circle at 85% 40%, rgba(115, 175, 111, 0.04) 0%, transparent 20%),
+        radial-gradient(circle at 50% 70%, rgba(115, 175, 111, 0.05) 0%, transparent 30%),
+        radial-gradient(circle, rgba(115, 175, 111, 0.04) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
 /* Gallery page styles */
 .gallery-grid {
     display: grid;
@@ -51,33 +68,140 @@
 }
 
 /* About page styles */
-.about-content {
-    max-width: 700px;
-}
-
-.about-section {
-    margin-bottom: 2rem;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.skill-tag {
-    background-color: #0a2533;
-    border: 1px solid #435E52;
-    padding: 0.75rem;
-    border-radius: 8px;
+.about-hero {
     text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-intro {
+    font-size: 1.2rem;
+    color: #b8c5ba;
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+.about-content {
+    margin-bottom: 4rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background: radial-gradient(circle at top left, rgba(20, 27, 26, 0.6), rgba(5, 6, 7, 0.4));
+    border: 1px solid #435E52;
+    border-radius: 12px;
+    padding: 2rem;
     transition: all 0.3s ease;
 }
 
-.skill-tag:hover {
+.about-card:hover {
     border-color: #73AF6F;
-    background-color: #0d2d3f;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(115, 175, 111, 0.1);
+}
+
+.about-card h2 {
+    color: #73AF6F;
+    font-size: 1.3rem;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+}
+
+.about-card p {
+    color: #b8c5ba;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    color: #b8c5ba;
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.skill-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #73AF6F;
+    font-size: 1.2rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tech-tag {
+    background: rgba(115, 175, 111, 0.1);
+    border: 1px solid #435E52;
+    color: #73AF6F;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(115, 175, 111, 0.2);
+    border-color: #73AF6F;
+    transform: translateY(-2px);
+}
+
+.about-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: radial-gradient(circle at center, rgba(115, 175, 111, 0.05), transparent);
+    border-radius: 12px;
+}
+
+.about-cta h2 {
+    color: #73AF6F;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-cta p {
+    color: #b8c5ba;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    background: rgba(115, 175, 111, 0.1);
+    border: 1px solid #73AF6F;
+    color: #73AF6F;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background: rgba(115, 175, 111, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(115, 175, 111, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -86,7 +210,21 @@
         gap: 1rem;
     }
     
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-intro {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-btn {
+        width: 100%;
+        max-width: 250px;
     }
 }

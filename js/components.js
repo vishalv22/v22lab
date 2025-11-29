@@ -1,14 +1,17 @@
 // Reusable header component
 function createHeader(activePage) {
     return `
-        <a href="index.html"><img src="assets/logo.png" alt="v22lab Logo" width="60"></a>
-        <nav>
-            <a href="index.html" class="nav-btn ${activePage === 'home' ? 'active' : ''}">Home</a>
-            <a href="projects.html" class="nav-btn ${activePage === 'projects' ? 'active' : ''}">Projects</a>
-            <a href="gallery.html" class="nav-btn ${activePage === 'gallery' ? 'active' : ''}">Gallery</a>
-            <a href="notes.html" class="nav-btn ${activePage === 'notes' ? 'active' : ''}">Notes</a>
-            <a href="about.html" class="nav-btn ${activePage === 'about' ? 'active' : ''}">About Me</a>
-        </nav>
+        <div class="header-left">
+            <a href="index.html"><img src="assets/logo.png" alt="v22lab Logo" width="60"></a>
+            <nav>
+                <a href="index.html" class="nav-btn ${activePage === 'home' ? 'active' : ''}">Home</a>
+                <a href="projects.html" class="nav-btn ${activePage === 'projects' ? 'active' : ''}">Projects</a>
+                <a href="gallery.html" class="nav-btn ${activePage === 'gallery' ? 'active' : ''}">Gallery</a>
+                <a href="notes.html" class="nav-btn ${activePage === 'notes' ? 'active' : ''}">Notes</a>
+                <a href="about.html" class="nav-btn ${activePage === 'about' ? 'active' : ''}">About</a>
+            </nav>
+        </div>
+        <a href="about.html#contact" class="header-cta">Get in Touch</a>
     `;
 }
 

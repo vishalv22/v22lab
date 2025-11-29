@@ -14,6 +14,23 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.scroll-reveal');
+
+const revealOnScroll = () => {
+    revealElements.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+            el.classList.add('revealed');
+        }
+    });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
 // Typing effect
 const typingText = document.getElementById('typing-text');
 if (typingText) {
@@ -34,10 +51,10 @@ if (typingText) {
 }
 
 // Cursor light effect with throttling
-const cards = document.querySelectorAll('.hero-console, .highlight-card');
+const interactiveCards = document.querySelectorAll('.hero-console, .highlight-card, .stat-card, .featured-card');
 let ticking = false;
 
-cards.forEach(card => {
+interactiveCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
         if (!ticking) {
             requestAnimationFrame(() => {
@@ -51,6 +68,32 @@ cards.forEach(card => {
             });
             ticking = true;
         }
+    });
+});
+
+// Button ripple effect
+const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
+buttons.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+            position: absolute;
+            left: ${x}px;
+            top: ${y}px;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            animation: ripple 0.6s ease-out;
+        `;
+        
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
     });
 });
 
@@ -117,3 +160,18 @@ if (scrollContainer) {
     updateCenterCard();
 }
 
+// Add ripple animation keyframes dynamically
+if (!document.querySelector('#ripple-animation')) {
+    const style = document.createElement('style');
+    style.id = 'ripple-animation';
+    style.textContent = `
+        @keyframes ripple {
+            to {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}

@@ -9,38 +9,127 @@
     <link rel="stylesheet" href="css/projects.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body data-page="projects">
+    <div class="bg-effect"></div>
     <header></header>
     <main>
-        <section id="projects">
-            <h1>My <span class="highlight">Projects</span></h1>
-            <p>Here are some of the projects I've been working on.</p>
-            
-            <div class="project-grid">
-                <div class="project-card">
+        <section class="projects-hero">
+            <p class="hero-tag">/ my work</p>
+            <h1 class="page-title">Featured <span class="highlight">Projects</span></h1>
+            <p class="projects-subtitle">Building tools and experiments — open source and free to use</p>
+        </section>
+
+        <section class="projects-bento">
+            <!-- Large Featured Project -->
+            <div class="project-card featured" data-project="1">
+                <div class="project-image">
+                    <div class="project-placeholder">🎵</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5 Audio</span>
+                    </div>
+                    <h2>Offline Music Player</h2>
+                    <p>A custom-built music player with clean UI and smooth playback. Manage your music library offline with playlist support and audio controls.</p>
+                    <div class="project-footer">
+                        <a href="#" class="project-link">View Project →</a>
+                        <span class="project-status live">● Completed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Projects -->
+            <div class="project-card medium" data-project="2">
+                <div class="project-image">
+                    <div class="project-placeholder">🌐</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JS</span>
+                    </div>
+                    <h3>v22lab Portfolio</h3>
+                    <p>This website — a minimal portfolio with smooth animations and modern design.</p>
+                    <div class="project-footer">
+                        <a href="index.html" class="project-link">View →</a>
+                        <span class="project-status live">● Live</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card medium" data-project="3">
+                <div class="project-image">
+                    <div class="project-placeholder">🤖</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Python</span>
+                    </div>
+                    <h3>AI Project</h3>
+                    <p>Exploring AI applications and building something creative.</p>
+                    <div class="project-footer">
+                        <a href="#" class="project-link">View →</a>
+                        <span class="project-status planned">● Planned</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Projects -->
+            <div class="project-card small" data-project="4">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">Tool</span>
+                    </div>
                     <h3>Web Tools</h3>
-                    <p>Collection of useful web-based tools.</p>
-                    <span class="project-tag">Active</span>
+                    <p>Collection of useful web utilities.</p>
+                    <a href="#" class="project-link">Coming Soon →</a>
                 </div>
-                
-                <div class="project-card">
-                    <h3>Portfolio</h3>
-                    <p>Personal portfolio website.</p>
-                    <span class="project-tag">Active</span>
+            </div>
+
+            <div class="project-card small" data-project="5">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">Experiment</span>
+                    </div>
+                    <h3>Code Experiments</h3>
+                    <p>Creative coding and visual effects.</p>
+                    <a href="#" class="project-link">Explore →</a>
                 </div>
-                
-                <div class="project-card">
-                    <h3>PDF to Image</h3>
-                    <p>Convert PDF to any Image Format.</p>
-                    <span class="project-tag">Planned</span>
+            </div>
+
+            <div class="project-card small" data-project="6">
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">Resource</span>
+                    </div>
+                    <h3>Dev Resources</h3>
+                    <p>Curated tools and learning materials.</p>
+                    <a href="#" class="project-link">Browse →</a>
                 </div>
-                
-                <div class="project-card">
-                    <h3>Music App</h3>
-                    <p>Curated code snippets library.</p>
-                    <span class="project-tag">Planned</span>
+            </div>
+
+            <!-- Wide Project -->
+            <div class="project-card wide" data-project="7">
+                <div class="project-image">
+                    <div class="project-placeholder">💡</div>
+                </div>
+                <div class="project-content">
+                    <div class="project-tags">
+                        <span class="tag">Open Source</span>
+                        <span class="tag">Free</span>
+                    </div>
+                    <h3>More Projects Coming Soon</h3>
+                    <p>Building tools, experiments, and resources for the community. All projects are open source and free to use. Stay tuned for updates!</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/vishalv22" target="_blank" class="project-link">Follow on GitHub →</a>
+                        <span class="project-status dev">● In Progress</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -48,5 +137,6 @@
     <footer></footer>
     <script src="js/components.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/projects.js"></script>
 </body>
 </html>

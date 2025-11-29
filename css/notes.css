@@ -1,0 +1,173 @@
+/* Notes Page Background - Circuit Pattern */
+.bg-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(115, 175, 111, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(115, 175, 111, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 20% 30%, rgba(115, 175, 111, 0.03) 2px, transparent 2px),
+        radial-gradient(circle at 80% 70%, rgba(115, 175, 111, 0.03) 2px, transparent 2px);
+    background-size: 40px 40px, 40px 40px, 200px 200px, 200px 200px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Notes Page */
+.notes-hero {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.notes-subtitle {
+    font-size: 1.1rem;
+    color: #b8c5ba;
+    margin-top: 1rem;
+}
+
+.notes-categories {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-section {
+    margin-bottom: 4rem;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.category-icon {
+    font-size: 2rem;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.note-card {
+    background: radial-gradient(circle at top left, rgba(20, 27, 26, 0.6), rgba(5, 6, 7, 0.4));
+    border: 1px solid #435E52;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.note-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(115, 175, 111, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.note-card:hover::before {
+    opacity: 1;
+}
+
+.note-card:hover {
+    border-color: #73AF6F;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(115, 175, 111, 0.15);
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.note-icon {
+    font-size: 2.5rem;
+}
+
+.note-count {
+    font-size: 0.75rem;
+    color: #8da891;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(115, 175, 111, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+}
+
+.note-card h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.note-card p {
+    color: #b8c5ba;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.note-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.note-status {
+    font-size: 0.8rem;
+    color: #8da891;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-card {
+    animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.note-card:nth-child(1) { animation-delay: 0.1s; }
+.note-card:nth-child(2) { animation-delay: 0.2s; }
+.note-card:nth-child(3) { animation-delay: 0.3s; }
+.note-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+}
